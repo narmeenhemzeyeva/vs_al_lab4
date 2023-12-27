@@ -1,0 +1,25 @@
+# Ədədi massiv yaratmaq
+massiv = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Ədədlərin yerinə yazılacaq faylın adı
+fayl_adı = "massiv.txt"
+
+# Faylı yaratmaq və ədədləri fayla yazmaq
+with open(fayl_adı, 'w') as f:
+    for ədəd in massiv:
+        f.write(str(ədəd) + '\n')
+
+# 5-ə bölünməyən ədədləri yeni fayla yazmaq
+yeni_fayl_adı = "bölünməyən_ədədlər.txt"
+hasil_fayl_adı = "hasil.txt"
+
+with open(fayl_adı, 'r') as f:
+    with open(yeni_fayl_adı, 'w') as yeni_f:
+        with open(hasil_fayl_adı, 'w') as hasil_f:
+            for line in f:
+                ədəd = int(line.strip())
+                if ədəd % 5 != 0:
+                    yeni_f.write(str(ədəd) + '\n')
+                    hasil_f.write(str(ədəd) + ' hasil: ' + str(ədəd * 2) + '\n')
+
+print("Ədədlər uğurla fayllara yazıldı.")
